@@ -14,6 +14,10 @@ public class AdderessBook {
 		return contacts.get(firstName);
 	}
 
+	public Contact deleteContact(String firstName) {
+		return contacts.remove(firstName);
+	}
+
 	public String print() {
 		StringBuilder sb = new StringBuilder("AdderessBook");
 		for (Contact contact : contacts.values()) {

@@ -14,9 +14,14 @@ public class AdderessBookDemo {
 
 		System.out.println(adderessBook.print());
 
-		editPerson(contactReader, sc, adderessBook);
+		editContact(contactReader, sc, adderessBook);
 
 		System.out.println("Address Book After Edit....");
+		System.out.println(adderessBook.print());
+
+		deleteContact(contactReader, sc, adderessBook);
+
+		System.out.println("Address Book After Delete....");
 		System.out.println(adderessBook.print());
 	}
 
@@ -28,7 +33,7 @@ public class AdderessBookDemo {
 		adderessBook.putContact(contact2);
 	}
 
-	private static void editPerson(ContactReader contactReader, Scanner sc, AdderessBook adderessBook) {
+	private static void editContact(ContactReader contactReader, Scanner sc, AdderessBook adderessBook) {
 		System.out.println("Enter firstName to edit");
 		String firstName = sc.next();
 		Contact contact = adderessBook.getContact(firstName);
@@ -38,4 +43,16 @@ public class AdderessBookDemo {
 
 		contactReader.updateContact(sc, contact);
 	}
+
+	private static void deleteContact(ContactReader contactReader, Scanner sc, AdderessBook adderessBook) {
+		System.out.println("Enter firstName to delete");
+		String firstName = sc.next();
+		Contact contact = adderessBook.getContact(firstName);
+		if (contact == null) {
+			System.out.println("No person find to delate");
+		}
+
+		adderessBook.deleteContact(firstName);
+	}
+
 }
