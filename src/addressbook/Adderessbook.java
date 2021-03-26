@@ -10,11 +10,14 @@ public class AdderessBook {
 		contacts.put(contact.getFirstName(), contact);
 	}
 
-	@Override
-	public String toString() {
+	public Contact getContact(String firstName) {
+		return contacts.get(firstName);
+	}
+
+	public String print() {
 		StringBuilder sb = new StringBuilder("AdderessBook");
-		for (Contact contact2 :contacts.values()) {
-			sb.append("\n contact: ").append(contact2);
+		for (Contact contact : contacts.values()) {
+			sb.append("\n contact: ").append(contact.print());
 		}
 		return sb.toString();
 	}
