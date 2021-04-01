@@ -1,15 +1,13 @@
 package addressbook;
-
 public class Contact {
-	private String firstName;
-	private String lastName;
-	private String address;
-	private String city;
-	private String state;
-	private String email;
-	private int zip;
-	private int phoneNumber;
-
+	public static String firstName;
+	public static String lastName;
+	public static String address;
+	public static String city;
+	public static String state;
+	public  static String email;
+	public static int zip;
+	public static int phoneNumber;
 	public Contact(String firstName, String lastName, String address, String city, String state, String email, int zip,
 			int phoneNumber) {
 		this.firstName = firstName;
@@ -28,6 +26,9 @@ public class Contact {
 
 	public String getLastName() {
 		return lastName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public void setLastName(String lastName) {
@@ -82,9 +83,10 @@ public class Contact {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String print() {
-		return "firstName=" + firstName + ", \n" + "lastName=" + lastName + ",\n" + "address=" + address + ",\n"
-				+ "city=" + city + ",\n" + "state=" + state + ",\n" + "email=" + email + ",\n" + "zip=" + zip + ",\n"
+	public static String print()
+	{
+		return "firstName=" + firstName + " \n" + "lastName=" + lastName + "\n" + "address=" + address + "\n"
+				+ "city=" + city + "\n" + "state=" + state + "\n" + "email=" + email + "\n" + "zip=" + zip + "\n"
 				+ "phoneNumber=" + phoneNumber + "\n";
 	}
 

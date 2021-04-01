@@ -18,6 +18,7 @@ public class ContactReader {
 	}
 
 	public void updateContact(Scanner sc, Contact contact) {
+		String firstName = readString(sc, "Enter first name :- ");
 		String lastName = readString(sc, "Enter last name :- ");
 		String address = readString(sc, "Enter Address :- ");
 		String city = readString(sc, "Enter City :- ");
@@ -26,6 +27,7 @@ public class ContactReader {
 		int zip = readInt(sc, "Enter Zip :- ");
 		int phoneNumber = readInt(sc, "Enter Phone Number :- ");
 
+		contact.setFirstName(firstName);
 		contact.setLastName(lastName);
 		contact.setAddress(address);
 		contact.setCity(city);

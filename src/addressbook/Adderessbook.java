@@ -14,8 +14,8 @@ public class AdderessBook {
 		return contacts.get(firstName);
 	}
 
-	public Contact deleteContact(String firstName) {
-		return contacts.remove(firstName);
+	public Contact deleteContact(Contact contact) {
+		return contacts.remove(contact);
 	}
 
 	public String print() {
