@@ -1,5 +1,6 @@
 package addressbook;
 
+import java.util.*;
 import java.util.Scanner;
 
 public class AdderessBookDemo {
@@ -8,7 +9,7 @@ public class AdderessBookDemo {
 	public static void main(String[] args) {
 		System.out.println("Well Come To Address Book Program....");
 		Scanner sc = new Scanner(System.in);
-
+		List<Contact> AdderessBook = new LinkedList<Contact>();
 		ContactReader contactReader = new ContactReader();
 		AdderessBook adderessBook = new AdderessBook();
 
@@ -37,12 +38,9 @@ public class AdderessBookDemo {
 		Contact contact3 = contactReader.readContact(sc);
 		adderessBook.putContact(contact3);
 	}
-
-	private Object adderessBook;
-	
-	public boolean checkDuplicate(String firstName) {
+public boolean checkDuplicate(String firstName) {
 		int flag = 0;
-		for (Contact c : adderessBook) {
+		for (Contact c : AdderessBook) {
 			if (c.getFirstName().equals(firstName)) {
 				flag = 1;
 				break;
@@ -73,5 +71,35 @@ public class AdderessBookDemo {
 			System.out.println("No person find to delate");
 		}
 		adderessBook.deleteContact(contact);
+	}
+	
+	public static void searchByCity() {
+		System.out.println("Enter The City You Want To Search");
+		String city = sc.next();
+		for (Contact c : adderessBook) {
+			if (c.getCity().equals(city)) {
+
+				System.out.println(b);
+				break;
+			} else {
+				System.out.println("City Does Not Exist");
+			}
+		}
+	}
+
+	public static void searchByState() {
+
+		System.out.println("Enter The State You Want To Search");
+		String state = sc.next();
+		for (Contact c : adderessBook) {
+			if (c.getState().equals(state)) {
+
+				System.out.println(b);
+				break;
+			} else {
+				System.out.println("State Does Not Exist");
+			}
+		}
+
 	}
 }
