@@ -4,12 +4,10 @@ import java.util.*;
 import java.util.Scanner;
 
 public class AdderessBookDemo {
-	private static final String contact = null;
-
 	public static void main(String[] args) {
 		System.out.println("Well Come To Address Book Program....");
 		Scanner sc = new Scanner(System.in);
-		List<Contact> AdderessBook = new LinkedList<Contact>();
+		List<Contact> details = new LinkedList<Contact>();
 		ContactReader contactReader = new ContactReader();
 		AdderessBook adderessBook = new AdderessBook();
 
@@ -40,7 +38,7 @@ public class AdderessBookDemo {
 	}
 public boolean checkDuplicate(String firstName) {
 		int flag = 0;
-		for (Contact c : AdderessBook) {
+		for (Contact c : details) {
 			if (c.getFirstName().equals(firstName)) {
 				flag = 1;
 				break;
@@ -51,7 +49,7 @@ public boolean checkDuplicate(String firstName) {
 
 	public static void show() {
 
-		System.out.println("contact"+contact);
+		System.out.println(contact);
 	}
 	public static void editContact(ContactReader contactReader, Scanner sc, AdderessBook adderessBook) {
 		System.out.println("Enter firstName to edit");
@@ -75,8 +73,8 @@ public boolean checkDuplicate(String firstName) {
 	
 	public static void searchByCity() {
 		System.out.println("Enter The City You Want To Search");
-		String city = sc.next();
-		for (Contact c : adderessBook) {
+		String city = sc.nextLine();
+		for (Contact c : details) {
 			if (c.getCity().equals(city)) {
 
 				System.out.println(b);
@@ -90,8 +88,8 @@ public boolean checkDuplicate(String firstName) {
 	public static void searchByState() {
 
 		System.out.println("Enter The State You Want To Search");
-		String state = sc.next();
-		for (Contact c : adderessBook) {
+		String state = sc.nextLine();
+		for (Contact c : details) {
 			if (c.getState().equals(state)) {
 
 				System.out.println(b);
@@ -101,5 +99,35 @@ public boolean checkDuplicate(String firstName) {
 			}
 		}
 
+	}
+	public static void countByCity() {
+		System.out.println("Enter The City Name You Want To Count Contacts");
+		String city = sc.nextLine();
+		int count = 0;
+		for (Contact c : details) {
+			if (c.getCity().equals(city)) {
+				count++;
+				System.out.println("Number Of Person Is :" + count);
+				break;
+			} else {
+				System.out.println("City Does Not Exist");
+			}
+		}
+
+	}
+
+	public static void countByState() {
+		System.out.println("Enter The State Name You Want To Count Contacts");
+		String state = sc.nextLine();
+		int count = 0;
+		for (Contact c : details) {
+			if (c.getState().equals(state)) {
+				count++;
+				System.out.println("Number Of Person Is :" + count);
+				break;
+			} else {
+				System.out.println("State Does Not Exist");
+			}
+		}
 	}
 }
