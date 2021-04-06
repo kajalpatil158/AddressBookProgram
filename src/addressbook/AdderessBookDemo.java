@@ -3,6 +3,8 @@ package addressbook;
 import java.util.Scanner;
 
 public class AdderessBookDemo {
+	private static final String contact = null;
+
 	public static void main(String[] args) {
 		System.out.println("Well Come To Address Book Program....");
 		Scanner sc = new Scanner(System.in);
@@ -36,6 +38,23 @@ public class AdderessBookDemo {
 		adderessBook.putContact(contact3);
 	}
 
+	private Object adderessBook;
+	
+	public boolean checkDuplicate(String firstName) {
+		int flag = 0;
+		for (Contact c : adderessBook) {
+			if (c.getFirstName().equals(firstName)) {
+				flag = 1;
+				break;
+			}
+		}
+		return flag == 1;
+	}
+
+	public static void show() {
+
+		System.out.println("contact"+contact);
+	}
 	public static void editContact(ContactReader contactReader, Scanner sc, AdderessBook adderessBook) {
 		System.out.println("Enter firstName to edit");
 		String firstName = sc.next();
@@ -43,7 +62,6 @@ public class AdderessBookDemo {
 		if (contact == null) {
 			System.out.println("No person find to edit");
 		}
-
 		contactReader.updateContact(sc, contact);
 	}
 
@@ -54,7 +72,6 @@ public class AdderessBookDemo {
 		if (contact == null) {
 			System.out.println("No person find to delate");
 		}
-		adderessBook.deleteContact( contact);
+		adderessBook.deleteContact(contact);
 	}
-
 }
